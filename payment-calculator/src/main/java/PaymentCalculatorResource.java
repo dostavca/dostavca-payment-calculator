@@ -20,10 +20,11 @@ import javax.ws.rs.core.Response;
 @Health
 public class PaymentCalculatorResource {
 
-    @GET
-    @Metered(name = "check-balance-meter")
-    @Path("check-balance")
-    public Response checkBalance(User user) {
-        return Response.ok(user.getBalance()).build();
+    @POST
+    @Metered(name = "calculate-payment-meter")
+    @Path("calculate-payment")
+    public Response calculatePayment(Transport transport) {
+        double payment = transport.getDistance() * 0.02 + transport.getPacket().getWeight() * 0.3;
+        return Response.ok(payment).build();
     }
 }
