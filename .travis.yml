@@ -19,4 +19,4 @@ script:
 
 after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - docker push aljazb/dostavca-payment-calculator:latestBlake:dostavca-payment-calculator
+  - docker push aljazb/dostavca-payment-calculator:latest
